@@ -1,0 +1,6 @@
+{
+  "name": "RepoRamp AI",
+  "description": "AI-powered GitHub repository onboarding and intelligence platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
