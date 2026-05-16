@@ -1,10 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { BookOpen, Map, FileCode, CheckCircle2, ChevronRight, Bookmark } from 'lucide-react';
+import { BookOpen, Map, FileCode, CheckCircle2, ChevronRight, Bookmark, Calendar } from 'lucide-react';
+import LearningRoadmap from '../components/LearningRoadmap';
 
 const EmployeeDashboard = ({ report }: { report: any }) => {
+  const [activeTab, setActiveTab] = useState<'roadmap' | 'overview'>('roadmap');
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in duration-1000">
+    <div className="space-y-8 animate-in fade-in duration-1000">
+      {/* Tab Navigation */}
+      <div className="flex items-center space-x-2 bg-[#0c0c0e] p-2 rounded-2xl border border-[#27272a] w-fit">
+        <button
+          onClick={() => setActiveTab('roadmap')}
+          className={`px-6 py-3 rounded-xl font-bold text-sm transition-all ${
+            activeTab === 'roadmap'
+              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
+              : 'text-zinc-500 hover:text-white'
+          }`}
+        >
+          <Calendar size={16} className="inline mr-2" />
+          Learning Roadmap
+        </button>
+        <button
+          onClick={() => setActiveTab('overview')}
+          className={`px-6 py-3 rounded-xl font-bold text-sm transition-all ${
+            activeTab === 'overview'
+              ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
+              : 'text-zinc-500 hover:text-white'
+          }`}
+        >
+          <BookOpen size={16} className="inline mr-2" />
+          System Overview
+        </button>
+      </div>
+
+      {/* Learning Roadmap Tab */}
+      {activeTab === 'roadmap' && (
+        <LearningRoadmap
+          reportId={report._id}
+          roadmapData={report.roadmap || []}
+          role="employee"
+        />
+      )}
+
+      {/* Overview Tab */}
+      {activeTab === 'overview' && (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {/* Left Column - Onboarding Guide & Overview */}
       <div className="lg:col-span-2 space-y-8">
         {/* Overview Card */}
@@ -123,6 +164,8 @@ const EmployeeDashboard = ({ report }: { report: any }) => {
            </button>
         </div>
       </div>
+        </div>
+      )}
     </div>
   );
 };

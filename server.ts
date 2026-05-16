@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import { createServer as createViteServer } from "vite";
 import authRoutes from "./server/routes/auth";
 import repoRoutes from "./server/routes/repo";
+import roadmapRoutes from "./server/routes/roadmap";
+import knowledgeRiskRoutes from "./server/routes/knowledgeRisk";
 
 dotenv.config();
 
@@ -19,6 +21,8 @@ app.use(express.json());
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/repo", repoRoutes);
+app.use("/api/roadmap", roadmapRoutes);
+app.use("/api/knowledge-risk", knowledgeRiskRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {

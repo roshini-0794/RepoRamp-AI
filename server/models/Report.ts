@@ -10,7 +10,14 @@ const onboardingReportSchema = new mongoose.Schema({
   folderStructure: mongoose.Schema.Types.Mixed,
   entryPoints: [{ file: String, description: String }],
   onboardingGuide: { type: String, required: true }, // Markdown
-  roadmap: [{ day: Number, task: String, description: String }],
+  roadmap: [{
+    day: Number,
+    task: String,
+    description: String,
+    files: [String],
+    commands: [String],
+    learningObjectives: [String]
+  }],
   importantFiles: [{ file: String, reason: String, importance: String }],
   risks: [{ area: String, description: String, severity: String }],
   complexityScore: { type: Number, default: 0 },

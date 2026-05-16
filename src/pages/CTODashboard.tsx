@@ -1,9 +1,13 @@
 import React from 'react';
 import { ShieldCheck, HardDrive, Cpu, Layers, TrendingUp, BarChart, Rocket } from 'lucide-react';
+import KnowledgeRiskAnalysis from '../components/KnowledgeRiskAnalysis';
 
 const CTODashboard = ({ report }: { report: any }) => {
   return (
     <div className="space-y-10 animate-in fade-in duration-1000">
+      {/* Knowledge Risk Analysis Card */}
+      <KnowledgeRiskAnalysis reportId={report._id} variant="ceo" />
+
       {/* High-Level Strategic View */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[

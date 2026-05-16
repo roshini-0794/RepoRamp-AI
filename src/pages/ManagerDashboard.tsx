@@ -1,9 +1,13 @@
 import React from 'react';
 import { AlertTriangle, Activity, Zap, Users, ShieldAlert, BarChart3 } from 'lucide-react';
+import KnowledgeRiskAnalysis from '../components/KnowledgeRiskAnalysis';
 
 const ManagerDashboard = ({ report }: { report: any }) => {
   return (
     <div className="space-y-10 animate-in fade-in duration-1000">
+      {/* Knowledge Risk Analysis Card */}
+      <KnowledgeRiskAnalysis reportId={report._id} variant="manager" />
+
       {/* Risk Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="glass-card p-8 rounded-3xl flex items-center space-x-5">
