@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RepoRamp AI
 
 RepoRamp AI helps developers and engineering teams understand unfamiliar GitHub repositories faster using AI-generated onboarding intelligence.
@@ -63,3 +64,7 @@ Deploy to Render, Heroku, or DigitalOcean.
 
 ### Database
 Use MongoDB Atlas for a managed free-tier database.
+=======
+# RepoRamp-AI
+AI-powered developer onboarding assistant that analyzes GitHub repositories and generates beginner-friendly onboarding guides using repository intelligence.
+>>>>>>> 68827256c3143c2f1fdf9020c1635b955a0ca052
